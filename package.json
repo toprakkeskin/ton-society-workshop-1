@@ -1,0 +1,41 @@
+{
+  "name": "nextjs-template",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "dev:https": "next dev --experimental-https",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.0.8",
+    "@telegram-apps/init-data-node": "^2.0.2",
+    "@telegram-apps/sdk-react": "^2.0.22",
+    "@telegram-apps/telegram-ui": "^2.1.5",
+    "@tonconnect/ui-react": "^2.0.5",
+    "crypto-browserify": "^3.12.1",
+    "eruda": "^3.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "next": "14.2.4",
+    "next-intl": "^3.17.6",
+    "normalize.css": "^8.0.1",
+    "postcss": "^8.5.3",
+    "process": "^0.11.10",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-qr-code": "^2.0.15",
+    "stream-browserify": "^3.0.0",
+    "tailwindcss": "^4.0.8"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.9",
+    "@types/node": "^22.13.5",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.4",
+    "typescript": "^5"
+  }
+}
