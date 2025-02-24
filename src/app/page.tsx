@@ -24,13 +24,12 @@ import {
   useTonAddress,
   useTonWallet,
 } from "@tonconnect/ui-react";
-import { initData, useLaunchParams, useSignal } from "@telegram-apps/sdk-react";
+import { initData, useSignal } from "@telegram-apps/sdk-react";
 import { IUser } from "@/lib/inMemoryStore";
 
 export default function Home() {
   //#region States
   // Telegram, User and Wallet States
-  const lp = useLaunchParams();
   const tgInitDataRaw = useSignal(initData.raw);
 
   const [user, setUser] = useState<IUser | null | undefined>(null);
@@ -122,7 +121,7 @@ export default function Home() {
 
   // Auto sign-in
   useEffect(() => {
-    if (lp && !user && tgInitDataRaw) {
+    if (!user && tgInitDataRaw) {
       (async () => {
         try {
           const response = await fetch("/api/auth", {
@@ -130,7 +129,6 @@ export default function Home() {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
               tgInitData: tgInitDataRaw,
-              startParam: lp.startParam,
             }),
             credentials: "include",
           });
@@ -146,7 +144,7 @@ export default function Home() {
         }
       })();
     }
-  }, [user, tgInitDataRaw, lp]);
+  }, [user, tgInitDataRaw]);
 
   useEffect(() => {
     // const connectedWalletAddress = wallet?.account?.address

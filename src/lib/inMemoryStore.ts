@@ -15,7 +15,6 @@ export interface IUser {
   id: string;
   walletAddress?: string;
   telegramId: string;
-  referrerId?: string;
   createdAt: Date;
 }
 

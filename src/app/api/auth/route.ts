@@ -15,7 +15,7 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   try {
     // Get Request Body
-    const { tgInitData, startParam } = await req.json();
+    const { tgInitData } = await req.json();
     const rawInitData = (tgInitData as string) || "";
 
     // Get Bot ID from Env
@@ -37,15 +37,8 @@ export async function POST(req: Request) {
     // Find or Create User
     let user = findUserByTelegramId(telegramId);
     if (!user) {
-      // Check if there is referrer
-      let referrerId;
-      if (startParam?.startsWith("ref_")) {
-        referrerId = startParam.split("ref_")[1];
-      }
-      console.log({ startParam, referrerId });
       user = createUser({
         telegramId,
-        referrerId,
       });
     }
 
